@@ -1,0 +1,9 @@
+node_modules
+dist
+*.local
+.env
+tsconfig.app.tsbuildinfo
+tsconfig.node.tsbuildinfo
+
+# Vendored third-party skills — restore with the pinned skills-lock.json
+.agents/
