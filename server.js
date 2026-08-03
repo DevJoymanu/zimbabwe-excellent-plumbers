@@ -26,6 +26,14 @@ const MIME = {
   ".xml": "application/xml; charset=utf-8",
 };
 
+/**
+ * Routes the client router actually renders — keep in step with src/App.tsx.
+ * Anything else still gets the shell (so the in-app not-found page renders and
+ * the header/footer stay usable) but with a real 404 status, so crawlers don't
+ * index every mistyped URL as a live page.
+ */
+const ROUTES = new Set(["/", "/services", "/our-work", "/about", "/contact"]);
+
 /** Vite fingerprints everything under /assets, so those can be cached forever. */
 function cacheControl(pathname) {
   if (pathname.startsWith("/assets/")) return "public, max-age=31536000, immutable";
@@ -80,7 +88,8 @@ const server = createServer(async (req, res) => {
   if (!extname(pathname)) {
     const shell = await resolveFile("/index.html");
     if (shell) {
-      send(res, 200, shell, "/index.html");
+      const known = ROUTES.has(pathname.replace(/\/+$/, "") || "/");
+      send(res, known ? 200 : 404, shell, "/index.html");
       return;
     }
   }

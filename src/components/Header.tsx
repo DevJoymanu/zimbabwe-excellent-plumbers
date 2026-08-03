@@ -52,7 +52,13 @@ export default function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2 lg:ml-2">
-          <WhatsAppButton size="sm" className="hidden sm:inline-flex" />
+          {/* Always visible, at every width — the primary CTA must never be
+              more than a glance away. (This previously carried
+              `hidden sm:inline-flex`, which never took effect: the button's own
+              base class already sets `inline-flex`, and Tailwind emits
+              `.inline-flex` after `.hidden`, so the later rule won at equal
+              specificity. Keeping it would have been a silent trap.) */}
+          <WhatsAppButton size="sm" />
           <button
             type="button"
             aria-expanded={menuOpen}

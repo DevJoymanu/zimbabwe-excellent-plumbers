@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import PageMeta from "./PageMeta";
 
 /** Client-side navigation keeps scroll position; each route should start at the top. */
 function ScrollToTop() {
@@ -14,6 +15,7 @@ export default function Layout() {
   return (
     <>
       <ScrollToTop />
+      <PageMeta />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-accent-foreground"
