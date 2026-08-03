@@ -14,7 +14,9 @@ export default function Header() {
   const { pathname } = useLocation();
 
   // A route change should never leave the drawer hanging open behind the page.
-  useEffect(() => setMenuOpen(false), [pathname]);
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-navy-deep/95 backdrop-blur supports-[backdrop-filter]:bg-navy-deep/85">

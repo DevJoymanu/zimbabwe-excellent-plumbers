@@ -7,7 +7,15 @@ import PageMeta from "./PageMeta";
 /** Client-side navigation keeps scroll position; each route should start at the top. */
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  // The braces are load-bearing. Written as a concise arrow body, this
+  // returned window.scrollTo's result — and because index.css sets
+  // `scroll-behavior: smooth`, current Chrome makes that a Promise, not
+  // undefined. React took the Promise for a cleanup function and threw
+  // "destroy is not a function" on the next route change, blanking every page
+  // reached by clicking a link. Never let an effect implicitly return.
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return null;
 }
 
