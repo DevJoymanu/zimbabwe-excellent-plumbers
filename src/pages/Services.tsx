@@ -4,7 +4,7 @@ import Section, { SectionHeading } from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { processSteps, services } from "@/data/services";
-import { site } from "@/data/site";
+import { consultMessage, offer, site } from "@/data/site";
 
 export default function Services() {
   return (
@@ -12,8 +12,9 @@ export default function Services() {
       <Hero
         compact
         eyebrow={`${site.city} · Services`}
-        title={`Premium bathroom and plumbing services in ${site.city}`}
-        lead="Everything below is delivered by the same team, to the same standard: scoped in writing, engineered underneath, finished cleanly. Bathrooms lead — broader civil and commercial plumbing follows."
+        title={`Plumbing services in ${site.city} — bathrooms to reticulation`}
+        lead={`Sewer and drainage, gutters, sanitary fittings, water and sewer reticulation, geysers, water tanks and pumps, and complete bathrooms. Same team, same standard: scoped in writing, engineered underneath, finished cleanly. Every job starts with a free consultation.`}
+        note={offer.reassurance}
       />
 
       <Section>
@@ -44,8 +45,10 @@ export default function Services() {
                   </ul>
                   <WhatsAppButton
                     className="mt-6"
-                    message={`Hello ${site.name}, I'd like a quote for ${service.title.toLowerCase()} in ${site.city}.`}
-                  />
+                    message={consultMessage(service.title.toLowerCase())}
+                  >
+                    Free consultation on {service.title.toLowerCase()}
+                  </WhatsAppButton>
                 </div>
               </article>
             </Reveal>
@@ -56,8 +59,8 @@ export default function Services() {
       <Section tone="sand">
         <SectionHeading
           eyebrow="How a job runs"
-          title="Four steps, no surprises"
-          lead="The same sequence on every job, whether it's a single shower or a commercial fit-out."
+          title="Four steps, starting with a free consultation"
+          lead="The same sequence on every job, whether it's one blocked drain or a full site reticulation. Step two costs you nothing."
         />
         <ol className="mt-12 grid gap-8 md:grid-cols-4">
           {processSteps.map((step, index) => (
@@ -75,21 +78,27 @@ export default function Services() {
           ))}
         </ol>
         <div className="mt-10">
-          <WhatsAppButton />
+          <WhatsAppButton size="lg" />
         </div>
       </Section>
 
       <Section tone="navy" center>
-        <h2 className="text-3xl text-white md:text-4xl lg:text-[2.75rem]">
-          Tell us what you need done.
+        <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">
+          {offer.headline}
+        </p>
+        <h2 className="mt-5 text-3xl text-white md:text-4xl lg:text-[2.75rem]">
+          Tell us what needs doing — the visit is on us.
         </h2>
         <p className="measure mx-auto mt-5 text-lg leading-relaxed text-white/75">
-          One message is enough to get an honest answer on scope, timing and rough
-          cost.
+          One WhatsApp message gets you an honest answer on scope and timing, and a
+          free consultation booked at your property. No call-out fee, no obligation.
         </p>
         <div className="mt-9">
           <WhatsAppButton size="lg" />
         </div>
+        <p className="mt-4 text-sm text-white/60">
+          {site.hours} · {site.city} and surrounding areas
+        </p>
       </Section>
     </>
   );

@@ -14,24 +14,24 @@ export type PageMeta = {
  */
 export const pageMeta: Record<string, PageMeta> = {
   "/": {
-    title: `Premium Bathrooms & Plumbing in ${site.city} | ${site.name}`,
-    description: `Bathroom renovations and plumbing in ${site.city}, quoted in writing and finished properly. See real completed work and message us on WhatsApp for a price.`,
+    title: `Plumbers in ${site.city} | Free Consultation | ${site.name}`,
+    description: `${site.yearsExperience}+ years of plumbing in ${site.city}: sewer and drainage, gutters, sanitary fittings, water and sewer reticulation, geysers, water tanks and pumps, bathrooms. Free consultation — WhatsApp us.`,
   },
   "/services": {
-    title: `Bathroom & Plumbing Services in ${site.city} | ${site.name}`,
-    description: `Bathroom renovations, showers and wet areas, tapware, hot water and solar geysers, storage tanks and pumps, and commercial plumbing across ${site.city}.`,
+    title: `Plumbing Services in ${site.city} — Drainage, Geysers, Tanks | ${site.name}`,
+    description: `Sewer and drainage, gutters, sanitary fittings and water closet sets, water and sewer reticulation, geyser and water tank installations, pumps and bathrooms across ${site.city}. Free consultation.`,
   },
   "/our-work": {
-    title: `Our Work — Completed Bathrooms & Plumbing in ${site.city} | ${site.name}`,
-    description: `Photographs of finished bathrooms, showers, solar geysers, pump installations and commercial plumbing handed over across ${site.city}. Filter by type of work.`,
+    title: `Our Work — Completed Plumbing Projects in ${site.city} | ${site.name}`,
+    description: `Photographs of finished bathrooms, showers, sanitaryware, solar geysers, water tanks and pump installations handed over across ${site.city}. Filter by type of work.`,
   },
   "/about": {
-    title: `About Us — Engineering-Led Plumbing in ${site.city} | ${site.name}`,
-    description: `How ${site.name} works: scoped written quotes, waterproofing and falls done correctly, pressure-tested installations, and a named contact from start to handover.`,
+    title: `About Us — ${site.yearsExperience}+ Years Plumbing in ${site.city} | ${site.name}`,
+    description: `${site.yearsExperience}+ years in the trade: free consultations, itemised written quotes in USD, correct gradients and waterproofing, pressure-tested installations, and a named contact from start to handover.`,
   },
   "/contact": {
-    title: `Contact — Get a Plumbing Quote in ${site.city} | ${site.name}`,
-    description: `Send a photo of your bathroom on WhatsApp for honest advice and a clear price. Serving ${site.city} and surrounding suburbs, ${site.hours}.`,
+    title: `Contact — Free Plumbing Consultation in ${site.city} | ${site.name}`,
+    description: `WhatsApp a photo of the job for honest advice and a free consultation at your property — no call-out fee. Serving ${site.city} and surrounding areas, ${site.hours}.`,
   },
 };
 

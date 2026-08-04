@@ -30,9 +30,6 @@ export default function Header() {
           </span>
           <span className="hidden text-sm leading-tight font-semibold tracking-tight sm:block">
             {site.name}
-            <span className="block text-[0.7rem] font-medium tracking-wide text-accent">
-              {site.city}
-            </span>
           </span>
         </Link>
 

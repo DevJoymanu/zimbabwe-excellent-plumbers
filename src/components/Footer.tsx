@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import WhatsAppButton from "./WhatsAppButton";
-import { serviceAreas, site, whatsappConfigured } from "@/data/site";
+import { offer, serviceAreas, site, whatsappConfigured } from "@/data/site";
 
 const EXPLORE = [
-  { to: "/services", label: `Plumbing and bathroom services in ${site.city}` },
-  { to: "/our-work", label: "Our finished bathroom projects" },
+  { to: "/services", label: `Plumbing services in ${site.city}` },
+  { to: "/our-work", label: "Our completed projects" },
   { to: "/about", label: `About ${site.name}` },
-  { to: "/contact", label: "Contact and request a quote" },
+  { to: "/contact", label: "Book a free consultation" },
 ];
 
 const HEADING = "text-sm font-semibold tracking-wide text-accent uppercase";
@@ -18,10 +18,13 @@ export default function Footer() {
         <div>
           <p className="font-display text-2xl text-white">{site.name}</p>
           <p className="measure mt-3 text-sm leading-relaxed">
-            Premium bathroom renovations and civil-engineering-grade plumbing for
-            homes and commercial property across {site.city}.
+            {site.yearsExperience}+ years of sewer and drainage, gutters, sanitary
+            fittings, water and sewer reticulation, geysers, water tanks and pumps,
+            and complete bathrooms — for homes and commercial property across{" "}
+            {site.city}.
           </p>
-          <WhatsAppButton className="mt-5" />
+          <WhatsAppButton className="mt-5" size="lg" />
+          <p className="mt-3 text-xs text-white/60">{offer.reassurance}</p>
         </div>
 
         <div>
@@ -31,7 +34,11 @@ export default function Footer() {
             <p>
               {site.city}, {site.country}
             </p>
-            <p>{whatsappConfigured ? "WhatsApp us any time" : "WhatsApp number coming soon"}</p>
+            <p>
+              {whatsappConfigured
+                ? "WhatsApp us any time — free consultation"
+                : "WhatsApp number coming soon"}
+            </p>
             <p>{site.hours}</p>
           </address>
           {!whatsappConfigured && (

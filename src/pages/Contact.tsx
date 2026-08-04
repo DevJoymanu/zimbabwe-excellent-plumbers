@@ -2,26 +2,34 @@ import Hero from "@/components/Hero";
 import Section, { SectionHeading } from "@/components/Section";
 import FAQ from "@/components/FAQ";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { serviceAreas, site, whatsappConfigured } from "@/data/site";
+import { offer, serviceAreas, site, whatsappConfigured } from "@/data/site";
 
 export default function Contact() {
   return (
     <>
       <Hero
         compact
-        eyebrow="Contact"
-        title={`Get a quote for plumbing work in ${site.city}`}
-        lead={`WhatsApp is the fastest way to reach us. Send a photo of the space, a rough idea of what you want, and your area — we'll come back with honest advice and next steps.`}
+        eyebrow="Contact · Free consultation"
+        title="Book your free consultation on WhatsApp"
+        lead={`WhatsApp is the fastest way to reach us. Send a photo of the job, a line about what's wrong or what you want, and your suburb — we'll reply with honest advice and arrange a time to come and look. No call-out fee, no obligation.`}
+        note={offer.reassurance}
       />
 
       <Section>
         <div className="grid gap-10 md:grid-cols-2">
           <div className="rounded-xl border border-border bg-card p-6">
             <h2 className="text-xs font-semibold tracking-[0.18em] text-accent-ink uppercase">
-              WhatsApp
+              WhatsApp — fastest route
             </h2>
             <p className="mt-4 font-display text-2xl text-navy">
-              {whatsappConfigured ? "Message us any time" : "WhatsApp number coming soon"}
+              {whatsappConfigured
+                ? "Message us any time — we reply in minutes"
+                : "WhatsApp number coming soon"}
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Tap below and the message is already written for you. We'll come out,
+              inspect the job and give you a written quote in USD — free, with no
+              obligation to book the work.
             </p>
             {!whatsappConfigured && (
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -69,7 +77,7 @@ export default function Contact() {
         />
         <FAQ />
         <div className="mt-10">
-          <WhatsAppButton />
+          <WhatsAppButton size="lg" />
         </div>
       </Section>
     </>

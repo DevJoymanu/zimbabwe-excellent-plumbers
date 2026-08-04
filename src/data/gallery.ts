@@ -10,12 +10,19 @@ import showerMixerTapware from "@/assets/img/shower-mixer-tapware.jpg";
 import toiletInstallationBathroom from "@/assets/img/toilet-installation-bathroom.jpg";
 import walkInShowerTiled from "@/assets/img/walk-in-shower-tiled.jpg";
 
+/**
+ * Mirrors the service list closely enough that a visitor filtering here sees the
+ * same vocabulary they read on /services. Categories with no photograph yet
+ * (sewer & drainage, reticulation, gutters) are deliberately absent — an empty
+ * filter tab reads as missing work rather than as a service we offer.
+ */
 export const galleryCategories = [
   "All",
   "Bathrooms",
   "Showers",
-  "Hot Water & Solar",
-  "Water Storage & Pumps",
+  "Sanitary Fittings",
+  "Geysers & Hot Water",
+  "Water Tanks & Pumps",
   "Commercial",
 ] as const;
 
@@ -55,7 +62,7 @@ export const galleryItems: GalleryItem[] = [
     src: fullHeightShowerEnclosure,
     alt: "Matt black freestanding bath filler tap running water into a white bath in a Harare bathroom",
     caption: "Freestanding bath filler, tested and running.",
-    category: "Bathrooms",
+    category: "Sanitary Fittings",
   },
   {
     src: completedBathroomWideView,
@@ -66,32 +73,32 @@ export const galleryItems: GalleryItem[] = [
   {
     src: plumbingPipeworkInstall,
     alt: "Freestanding bath, pedestal basin and toilet positioned in an unfinished bathroom during a Harare renovation",
-    caption: "Sanitaryware set out before tiling and finishing.",
-    category: "Bathrooms",
+    caption: "Bath, pedestal basin and WC set out before tiling and finishing.",
+    category: "Sanitary Fittings",
   },
   {
     src: bathroomVanityBasin,
     alt: "Technician installing an evacuated-tube solar geyser on a metal roof in Harare",
     caption: "Solar geyser installed and commissioned on a Harare rooftop.",
-    category: "Hot Water & Solar",
+    category: "Geysers & Hot Water",
   },
   {
     src: toiletInstallationBathroom,
     alt: "Water storage tank on a steel stand with booster pump and blue supply pipework at a Harare home",
     caption: "Elevated storage tank with booster pump and changeover valving.",
-    category: "Water Storage & Pumps",
+    category: "Water Tanks & Pumps",
   },
   {
     src: showerMixerTapware,
     alt: "Commercial water storage tanks with twin booster pumps and pressure vessels installed in Zimbabwe",
     caption: "Twin storage tanks, pressure vessels and duty pumps for a commercial site.",
-    category: "Water Storage & Pumps",
+    category: "Water Tanks & Pumps",
   },
   {
     src: basinMixerTap,
     alt: "Water tank on a tall fabricated steel stand plumbed into a home water supply in Harare",
     caption: "Tank stand fabricated, erected and plumbed in.",
-    category: "Water Storage & Pumps",
+    category: "Water Tanks & Pumps",
   },
   {
     src: bathroomTilingDetail,
@@ -101,5 +108,14 @@ export const galleryItems: GalleryItem[] = [
   },
 ];
 
-/** The four tiles shown in the homepage teaser. */
-export const featuredWork = galleryItems.slice(0, 4);
+/**
+ * The four tiles shown in the homepage teaser. Hand-picked rather than sliced
+ * off the top so the row spans the range of work — a bathroom, a shower, a
+ * geyser and a tank-and-pump set — instead of four bathrooms.
+ */
+export const featuredWork = [
+  galleryItems[0],
+  galleryItems[2],
+  galleryItems[6],
+  galleryItems[7],
+];

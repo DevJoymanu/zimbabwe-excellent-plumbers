@@ -1,3 +1,4 @@
+import { Check } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
 
 type Props = {
@@ -6,6 +7,8 @@ type Props = {
   lead: string;
   /** Background photograph; omit for the shorter inner-page variant. */
   image?: { src: string; alt: string; width: number; height: number };
+  /** Short proof points sitting between the lead and the CTA. */
+  bullets?: string[];
   note?: string;
   whatsappMessage?: string;
   compact?: boolean;
@@ -16,6 +19,7 @@ export default function Hero({
   title,
   lead,
   image,
+  bullets,
   note,
   whatsappMessage,
   compact = false,
@@ -50,6 +54,21 @@ export default function Hero({
           </p>
           <h1 className="mt-5 text-4xl text-white md:text-5xl lg:text-6xl">{title}</h1>
           <p className="measure mt-6 text-lg leading-relaxed text-white/85">{lead}</p>
+
+          {bullets && (
+            <ul className="mt-7 grid gap-2.5 sm:grid-cols-2">
+              {bullets.map((bullet) => (
+                <li
+                  key={bullet}
+                  className="flex items-start gap-2.5 text-sm font-medium text-white/85"
+                >
+                  <Check className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          )}
+
           <div className="mt-9">
             <WhatsAppButton size="lg" message={whatsappMessage} />
             {note && <p className="mt-3 text-sm text-white/65">{note}</p>}
